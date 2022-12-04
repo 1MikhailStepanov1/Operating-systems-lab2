@@ -20,5 +20,6 @@ SYSCALL_DEFINE1(dentry_read, char*, file_path){
 	printk(KERN_INFO "Dentry parent name: %s\n", my_path->dentry->d_parent->d_name.name);
 	printk(KERN_INFO "Inode UID: %d  Inode GID: %d\n", my_path->dentry->d_inode->i_uid, my_path->dentry->d_inode->i_gid);
 	printk(KERN_INFO "Inode flags: %d", my_path->dentry->d_inode->i_flags);
+	kfree(my_path);
 	return 0;
 }
